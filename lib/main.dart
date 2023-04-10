@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const App());
@@ -15,6 +17,18 @@ class App extends StatelessWidget {
     fontSize: 16,
     color: Colors.grey,
   );
+
+  callAction() {
+    print("Ligando...");
+  }
+
+  mapAction() {
+    print("Pegando endereço...");
+  }
+
+  shareAction() {
+    print("Compartilhando...");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,51 +81,21 @@ class App extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextButton(
-                    onPressed: () => "Ligar",
-                    child: const Column(
-                      children: [
-                        Icon(
-                          Icons.call,
-                          color: Colors.blue,
-                        ),
-                        Text(
-                          "Ligar",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
+                  Button(
+                    icon: Icons.call,
+                    text: "Ligar",
+                    onPress: callAction,
                   ),
-                  TextButton(
-                    onPressed: () => "Pegar endereço",
-                    child: const Column(
-                      children: [
-                        Icon(
-                          Icons.place,
-                          color: Colors.blue,
-                        ),
-                        Text(
-                          "Endereço",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
+                  Button(
+                    icon: Icons.place,
+                    text: "Endereço",
+                    onPress: mapAction,
                   ),
-                  TextButton(
-                    onPressed: () => "Compartilhar",
-                    child: const Column(
-                      children: [
-                        Icon(
-                          Icons.share,
-                          color: Colors.blue,
-                        ),
-                        Text(
-                          "Compartilhar",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ),
+                  Button(
+                    icon: Icons.share,
+                    text: "Compartilhar",
+                    onPress: shareAction,
+                  )
                 ],
               ),
             ),
@@ -124,6 +108,38 @@ class App extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Button extends StatelessWidget {
+  const Button({
+    super.key,
+    required this.icon,
+    required this.text,
+    required this.onPress,
+  });
+
+  final IconData icon;
+  final String text;
+  final VoidCallback onPress;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onPress,
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            color: Colors.blue,
+          ),
+          Text(
+            text,
+            style: const TextStyle(color: Colors.black),
+          ),
+        ],
       ),
     );
   }
