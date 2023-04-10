@@ -66,35 +66,53 @@ class App extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.all(20),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.call,
-                        color: Colors.blue,
-                      ),
-                      Text("Ligar"),
-                    ],
+                  TextButton(
+                    onPressed: () => "Ligar",
+                    child: const Column(
+                      children: [
+                        Icon(
+                          Icons.call,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          "Ligar",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.place,
-                        color: Colors.blue,
-                      ),
-                      Text("Endereço"),
-                    ],
+                  TextButton(
+                    onPressed: () => "Pegar endereço",
+                    child: const Column(
+                      children: [
+                        Icon(
+                          Icons.place,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          "Endereço",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.share,
-                        color: Colors.blue,
-                      ),
-                      Text("Compartilhar"),
-                    ],
+                  TextButton(
+                    onPressed: () => "Compartilhar",
+                    child: const Column(
+                      children: [
+                        Icon(
+                          Icons.share,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          "Compartilhar",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
