@@ -6,7 +6,7 @@ class App extends StatelessWidget {
   const App({super.key});
 
   static const titleStyle = TextStyle(
-    fontSize: 20,
+    fontSize: 18,
     color: Colors.black,
     fontWeight: FontWeight.bold,
   );
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
               image: AssetImage('assets/muro.jpg'),
             ),
             Container(
-              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.all(20),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -51,8 +51,6 @@ class App extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.star,
